@@ -21,7 +21,7 @@ const Upload = () => {
       <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl flex flex-col items-center gap-6 w-96">
         
         <label className="w-full cursor-pointer border-2 border-dashed border-gray-300 rounded-2xl p-10 flex flex-col 
-        items-center gap-4 hover:border-blue-400 hover:bg-blue-50 transition">
+        items-center gap-4 hover:border-gray-400 hover:bg-blue-50 transition">
           
           <div className="text-5xl">📁</div>
 
@@ -29,7 +29,7 @@ const Upload = () => {
             Click to upload or drag & drop
           </p>
 
-          <span className="bg-blue-500 text-white px-5 py-2 rounded-xl font-medium hover:scale-105 transition">
+          <span className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
             Choose Image
           </span>
 
