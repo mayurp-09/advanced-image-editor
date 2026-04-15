@@ -170,26 +170,19 @@ const handleContinue = () => {
 
  return (
   <div className="min-h-screen flex flex-col p-4 gap-4 bg-gradient-to-br from-blue-200 via-purple-300 to-pink-200 text-gray-800">
-    
-    {/* TOP BAR */}
+    {/*Top bar */}
     <div className="flex items-center justify-between bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl px-6 py-3 shadow-md">
       <button
         onClick={() => navigate("/")}
         className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
-        🖼️ Choose Image
-      </button>
-
+        🖼️ Choose Image</button>
       <h1 className="text-2xl font-bold bg-gradient-to-bl from-purple-600 to-pink-500 bg-clip-text text-transparent">
-        Advanced Image Editor
-      </h1>
-
+        Advanced Image Editor</h1>
       <button
         onClick={handleContinue}
         className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-        ➡️ Continue
-      </button>
+        ➡️ Continue</button>
     </div>
-
     {/* MAIN */}
     <div className="flex flex-1 gap-4">
       <div className="flex-[7] bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl flex items-center justify-center shadow-xl p-4">
@@ -200,7 +193,7 @@ const handleContinue = () => {
 
       {/* FILTER PANEL */}
       <div className="flex-[3] bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl p-5 flex flex-col gap-5 shadow-xl">
-        <h2 className="font-semibold text-lg">Filters</h2>
+        <h2 className="font-semibold text-lg">🎛️ Filters:</h2>
 
         <div className="flex flex-col gap-3 flex-1 overflow-y-auto">
           {Object.keys(filters).map((key) => {
@@ -252,12 +245,10 @@ const handleContinue = () => {
         </button>
       </div>
     </div>
-
     {/* PRESETS */}
     <div className="w-full">
       <div className="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-2xl p-2 shadow-xl">
-        <h2 className="font-semibold mb-3">Presets</h2>
-
+        <h2 className="font-semibold mb-3">🪄 Presets:</h2>
         <div className="flex justify-between">
           {Object.keys(presets).map((name) => (
             <button
