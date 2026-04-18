@@ -4,14 +4,11 @@ import { useRef, useEffect, useState } from "react";
 
 const Editor = () => {
   const location = useLocation();
-  const imageUrl = location.state?.imageUrl;
+  const imageUrl =
+  location.state?.imageUrl || localStorage.getItem("originalImage");
   const navigate = useNavigate();
   const canvasRef = useRef(null);
-
-  // ✅ image state
   const [image, setImage] = useState(null);
-
-  // ✅ filters state (your full system)
   const [filters, setFilters] = useState({
     brightness: { value: 100, min: 50, max: 150, unit: "%" },
     contrast: { value: 100, min: 70, max: 150, unit: "%" },
@@ -23,26 +20,20 @@ const Editor = () => {
     opacity: { value: 100, min: 70, max: 100, unit: "%" },
     invert: { value: 0, min: 0, max: 100, unit: "%" }
   });
-
   // ✅ Load image once
   useEffect(() => {
     if (!imageUrl) { navigate("/") };
-
     const img = new Image();
     img.src = imageUrl;
-
     img.onload = () => {
       setImage(img);
     };
   }, [imageUrl]);
 
-  // ✅ Draw image + apply filters
   useEffect(() => {
   if (!image) return;
-
   const canvas = canvasRef.current;
   if (!canvas) return;
-
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
@@ -58,7 +49,6 @@ const Editor = () => {
 
   canvas.width = width;
   canvas.height = height;
-
   // ✅ IMPORTANT: set filter BEFORE drawing
   ctx.filter = `
     brightness(${filters.brightness.value}${filters.brightness.unit})
@@ -162,10 +152,9 @@ const applyPreset = (preset) => {
 const handleContinue = () => {
   const canvas = canvasRef.current;
   if (!canvas) return;
-  const imageData = canvas.toDataURL("image/png");
-  navigate("/download", {
-    state: { imageData }
-  });
+  const imageData = canvas.toDataURL("image/jpeg", 0.9);
+  localStorage.setItem("editedImage", imageData);
+  navigate("/download");
 };
 
  return (

@@ -8,6 +8,7 @@ const Upload = () => {
         if (!file) return;
 
         const imageUrl = URL.createObjectURL(file);
+        localStorage.setItem("originalImage", imageUrl);
         navigate("/editor", {state: { imageUrl }});
     };
    return (
@@ -40,9 +41,7 @@ const Upload = () => {
             className="hidden"
           />
         </label>
-
       </div>
-
     </div>
   );
 };

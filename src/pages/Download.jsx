@@ -4,7 +4,7 @@ const Download = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const imageData = location.state?.imageData;
+  const imageData = localStorage.getItem("editedImage");
 
   return (
   <div className="min-h-screen flex flex-col p-4 gap-4 bg-gradient-to-br from-blue-200 via-purple-300 to-pink-200 text-gray-800">
